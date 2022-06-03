@@ -4,7 +4,9 @@ const Brand = require("../models/Brand.model");
 module.exports.brandController = {
     addBrand: async(req,res) =>{
         try{
-            await Brand.create(req.body.title)
+            await Brand.create({
+                title:req.body.title
+            })
             res.json("Brand added")
         }catch(err) {
             res.json(err)
