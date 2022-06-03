@@ -24,7 +24,7 @@ module.exports.categoryController = {
       }
   },
 
-// Admin route
+// Admin // route
   patchCategory: async (req, res) => {
       try {
        const categoryPatch = await Category.findByIdAndUpdate( req.params.id, {
