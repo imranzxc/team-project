@@ -51,8 +51,8 @@ module.exports.userController = {
   },
   addIntoCart: async (req, res) => {
     try {
-      await User.findByIdAndUpdate(req.params.id, {
-        $push: { cart: req.body.cart },
+      const addingIntoCard = await User.findByIdAndUpdate(req.params.id, {
+        $push: { Cart: req.body.Cart },
       });
       res.json('Product added successfully');
     } catch (err) {
@@ -62,7 +62,7 @@ module.exports.userController = {
   removeFromCart: async (req, res) => {
     try {
       await User.findByIdAndUpdate(req.params.id, {
-        $pull: { cart: req.body.cart },
+        $pull: { Cart: req.body.Cart },
       });
       res.json('Product has been removed from cart');
     } catch (err) {
