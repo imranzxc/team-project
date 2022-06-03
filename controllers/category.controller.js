@@ -5,8 +5,8 @@ module.exports.categoryController = {
 // Admin route
   postCategory: async (req, res) => {
     try {
-      const categoryPost = await Category.create({
-     title: String,
+      const categoryPost = await Category.create({ 
+     title: req.body.title
       });
       res.json(categoryPost);
     } catch (error) {
@@ -27,8 +27,8 @@ module.exports.categoryController = {
 // Admin route
   patchCategory: async (req, res) => {
       try {
-       const categoryPatch = await Category.findByIdAndUpdate({
-           title: String
+       const categoryPatch = await Category.findByIdAndUpdate( req.params.id, {
+           title: req.body.title
        })
        res.json(categoryPatch)   
       } catch (error) {
